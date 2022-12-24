@@ -7,19 +7,30 @@
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h> 
+
 using namespace std;
 
 const double WINDOW_WIDTH = 1024.0;
 const double WINDOW_HEIGHT = 1024.0;
 
-const int DIM_X_BOARD = 100.0;
-const int DIM_Y_BOARD = 100.0;
+const int DIM_X_BOARD = 256.0;
+const int DIM_Y_BOARD = 256.0;
 
 const double DIM_X_RECT = WINDOW_WIDTH / (1.0 * DIM_X_BOARD);
 const double DIM_Y_RECT = WINDOW_HEIGHT / (1.0 * DIM_Y_BOARD);
 
 bool matrix[DIM_Y_BOARD][DIM_X_BOARD];
 bool newMatrix[DIM_Y_BOARD][DIM_X_BOARD];
+
+const double WAITING_TIME = 0.0125; // in seconds
+
+double currentTimeConway = 0.0;
+double lastTimeConway = 0.0;
+
+const int HASH = 7;
 
 const char* vertexShaderSource =
 "#version 330 core \n"
@@ -135,8 +146,6 @@ void draw()
 
 void initMatrix()
 {
-    const int HASH = 17;
-
     for (int i = 0; i < DIM_X_BOARD; i++)
         for (int j = 0; j < DIM_Y_BOARD; j++)
             matrix[i][j] = (rand() % HASH == 0);
@@ -181,6 +190,8 @@ void Conway()
 
 int main()
 {
+    srand(time(NULL));
+
     glfwInit();
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -238,7 +249,13 @@ int main()
 
         handleInput(window);
 
-        Conway();
+        currentTimeConway = glfwGetTime();
+        if (currentTimeConway - lastTimeConway > WAITING_TIME)
+        {
+            lastTimeConway = currentTimeConway;
+            Conway();
+        }
+
         draw();
 
         glfwSwapBuffers(window);
