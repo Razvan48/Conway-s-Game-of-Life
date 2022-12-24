@@ -1,4 +1,4 @@
 # Conway-s-Game-of-Life | C++, OpenGL
 
-&emsp; This projects implementes John Conway's Game of Life (a cellular automata).
+&emsp; This projects implements John Conway's Game of Life (a cellular automata).
 
