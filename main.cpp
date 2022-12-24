@@ -19,8 +19,8 @@ const double WINDOW_HEIGHT = 1024.0;
 const int DIM_X_BOARD = 256.0;
 const int DIM_Y_BOARD = 256.0;
 
-const double DIM_X_RECT = WINDOW_WIDTH / (1.0 * DIM_X_BOARD);
-const double DIM_Y_RECT = WINDOW_HEIGHT / (1.0 * DIM_Y_BOARD);
+const double DIM_X_RECT = WINDOW_WIDTH / (1.0 * DIM_Y_BOARD);
+const double DIM_Y_RECT = WINDOW_HEIGHT / (1.0 * DIM_X_BOARD);
 
 bool matrix[DIM_X_BOARD][DIM_Y_BOARD];
 bool newMatrix[DIM_X_BOARD][DIM_Y_BOARD];
@@ -87,10 +87,8 @@ vector<double> vertices;
 |  /   |
 | /    |
 1/5----6
-
 (x1, y1) down-left
 (x2, y2) up-right
-
 */
 
 void drawRectangle(double x1, double y1, double x2, double y2)
@@ -153,8 +151,8 @@ void initMatrix()
 
 void Conway()
 {
-    int dx[] = { 0, 0, -1, 1, 1, -1,  1, -1};
-    int dy[] = {-1, 1,  0, 0, 1, -1, -1,  1};
+    int dx[] = { 0, 0, -1, 1, 1, -1,  1, -1 };
+    int dy[] = { -1, 1,  0, 0, 1, -1, -1,  1 };
 
     for (int i = 0; i < DIM_X_BOARD; i++)
         for (int j = 0; j < DIM_Y_BOARD; j++)
@@ -267,7 +265,8 @@ int main()
     glfwDestroyWindow(window);
 
     glfwTerminate();
-	
+
     return 0;
 }
+
 
