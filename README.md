@@ -1,8 +1,8 @@
 # Conway-s-Game-of-Life | _C++, OpenGL_
 
-&emsp; This projects implements John Conway's Game of Life (a cellular automata).
+&emsp; This projects implements John Conway's Game of Life (a cellular automata). <br/>
 
-# Controls:
+**Controls:** <br/>
 
-&emsp; Esc for closing the application
+&emsp; Esc for closing the application <br/>
 
