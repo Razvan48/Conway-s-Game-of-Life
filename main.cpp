@@ -22,8 +22,8 @@ const int DIM_Y_BOARD = 256.0;
 const double DIM_X_RECT = WINDOW_WIDTH / (1.0 * DIM_X_BOARD);
 const double DIM_Y_RECT = WINDOW_HEIGHT / (1.0 * DIM_Y_BOARD);
 
-bool matrix[DIM_Y_BOARD][DIM_X_BOARD];
-bool newMatrix[DIM_Y_BOARD][DIM_X_BOARD];
+bool matrix[DIM_X_BOARD][DIM_Y_BOARD];
+bool newMatrix[DIM_X_BOARD][DIM_Y_BOARD];
 
 const double WAITING_TIME = 0.0125; // in seconds
 
@@ -267,7 +267,7 @@ int main()
     glfwDestroyWindow(window);
 
     glfwTerminate();
-
-	return 0;
+	
+    return 0;
 }
 
