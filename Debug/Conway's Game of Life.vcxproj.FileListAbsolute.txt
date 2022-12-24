@@ -1,0 +1,2 @@
+C:\Users\razvan\Documents\GitHub\Conway-s-Game-of-Life\Debug\Conway's Game of Life.exe
+C:\Users\razvan\Documents\GitHub\Conway-s-Game-of-Life\Debug\Conway's Game of Life.pdb
