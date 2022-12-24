@@ -243,8 +243,6 @@ int main()
 
         glfwSwapBuffers(window);
         glfwPollEvents();
-
-        
     }
 
     glDeleteBuffers(1, &VBO);
